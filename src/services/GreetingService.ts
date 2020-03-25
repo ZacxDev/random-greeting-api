@@ -1,9 +1,8 @@
+const greetings = ['Hello', 'Salutations', 'Bonjour', 'Howdy', 'Wassssup', 'Hey'];
 export default class GreetingService {
-  /**
-   * @param {string} name The name of the person we would like to greet.
-   */
-  createGreeting(name?: string): string {
-    const greeting = `Hello, ${name || 'there'}!`;
-    return greeting;
+  getRandomGreeting(): string {
+    const max = greetings.length-1;
+    const rix = Math.ceil(Math.random() * max);
+    return greetings[rix];
   }
 }

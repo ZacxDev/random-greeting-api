@@ -21,8 +21,8 @@ app.get('/', (req: Request, res: Response, unusedNext: NextFunction) => {
   return HealthCheckController.index(req, res);
 });
 
-app.get('/greeting', (req: Request, res: Response, unusedNext: NextFunction) => {
-  return GreetingController.greeting(req, res);
+app.get('/random-greeting', (req: Request, res: Response, unusedNext: NextFunction) => {
+  return GreetingController.randomGreeting(req, res);
 });
 
 export default app;
