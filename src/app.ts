@@ -21,6 +21,15 @@ app.get('/', (req: Request, res: Response, unusedNext: NextFunction) => {
   return HealthCheckController.index(req, res);
 });
 
+app.use((req: Request, res: Response, next: NextFunction) => {
+  const { authorization } = req.headers;
+  if (authorization === 'my-secret') {
+    return next();
+  } else {
+    return res.status(401).send('Unauthorized');
+  }
+})
+
 app.get('/random-greeting', (req: Request, res: Response, unusedNext: NextFunction) => {
   return GreetingController.randomGreeting(req, res);
 });
